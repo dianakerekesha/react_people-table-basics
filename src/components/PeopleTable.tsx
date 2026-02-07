@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { Person } from '../types';
 import { PersonLink } from './PersonLink';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 interface PeopleTableProps {
   people: Person[];
@@ -48,12 +48,7 @@ export const PeopleTable: React.FC<PeopleTableProps> = ({ people }) => {
             })}
           >
             <td>
-              <Link
-                to={`/people/${person.slug}`}
-                className={cn({ 'has-text-danger': person.sex === 'f' })}
-              >
-                {person.name}
-              </Link>
+              <PersonLink person={person} />
             </td>
             <td>{person.sex}</td>
             <td>{person.born}</td>
